@@ -48,11 +48,16 @@
             <p>Hello <span ng-bind="name"></span>!</p>
             <p>List of Countries with locale:</p>
 
+           
             <!-- Use of ng-repeat
                 notice orderBy:'' with single quotes for field -->
 
+            <span> Order By : </span>  
+            <a href="" ng-click="predicate ='name';reverse=!reverse" >Name</a>
+            <a href="" ng-click="predicate ='locale';reverse=!reverse" >Locale</a>
+            
             <ol>
-                <li ng-repeat="country in countries | orderBy:'name'">
+                <li ng-repeat="country in countries | orderBy:predicate:reverse">
                     <span>{{ 'Country : ' + country.name + '  , Locale ' + country.locale }}</span>
                 </li>
             </ol>
