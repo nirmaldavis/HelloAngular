@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello</title>
+    <script src="/lib/angular.js">
+    </script>
+    <script>
+        var myApp = angular.module("myApp", []);
+        myApp.controller("HelloController", function($scope) {
+            $scope.hello = {};
+            $scope.hello.message = "Welcome to AngularJS";
+        });
+        
+    </script>
 </head>
-<body>
-    Hello, Welcome to AngularJS world
+<body ng-app="myApp">
+   <div ng-controller="HelloController">
+        <h2> Hello, {{hello.message}} World </h2>
+   </div>
 </body>
 </html>
