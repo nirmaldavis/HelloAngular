@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Countries</title>
+    <script src="/lib/angular.js"></script>
+<!--
+    <script>
+        var countryAppModule = angular.module("countryApp", []);
+        
+        console.log("Created countryAppModule : " + countryAppModule);
+        
+        countryAppModule.controller("countryController", function($scope) {
+            $scope.countriesList = [{
+                locale: 'en_US',
+                name: 'United States',
+                id:102
+            }, {
+                locale: 'en-GB',
+                name: 'United Kingdom',
+                id:101
+            }, {
+                locale: 'en-FR',
+                name: 'France',
+                id:108
+            }] ;
+
+        });
+    </script>
+-->
+</head>
+
+<body>
+
+    <h1>Sample Application</h1>
+
+    <div ng-app="" ng-init=" countries = 
+     [ {locale:'en_US', name:'United States'},
+       {locale:'en-GB', name:'United Kingdom'}, 
+       {locale:'en-FR', name:'France'} ]">
+
+        <div >
+
+            <p>Enter your Name:
+                <input type="text" ng-model="name">
+            </p>
+            <p>Hello <span ng-bind="name"></span>!</p>
+            <p>List of Countries with locale:</p>
+
+            <!-- Use of ng-repeat
+                notice orderBy:'' with single quotes for field -->
+
+            <ol>
+                <li ng-repeat="country in countries | orderBy:'name'">
+                    <span>{{ 'Country : ' + country.name + '  , Locale ' + country.locale }}</span>
+                </li>
+            </ol>
+
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
