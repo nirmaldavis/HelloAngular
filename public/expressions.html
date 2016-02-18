@@ -6,11 +6,35 @@
     <title>Expressions trial</title>
 </head>
 
+<script>
+    function start() {
+        console.log("Starting ");
+        window.setTimeout(load, 5000);
+    }
+
+    function load() {
+        console.log("Loading ");
+        
+        var  myAppModule = angular.module("myApp", []);
+        myAppModule.controller("MyController", ['$scope', function($scope) {
+            $scope.name = "Nirmal Davis. V";
+        }]);
+        
+        console.log("Bootstrapping angular..!! ");
+        angular.bootstrap(document, ["myApp"]);
+    }
+    
+    start();
+    
+</script>
+
 <body>
     <h1>Sample Application</h1>
 
-    <div ng-app="" ng-init="name = 'Nirmal'">
+<!--    <div ng-app="" ng-init="name = 'Nirmal'">-->
 
+    <div ng-controller="MyController">
+       
         <span>Hello {{ name }} </span>
 
     </div>
