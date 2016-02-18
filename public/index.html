@@ -10,10 +10,10 @@
         
         //Defined first module myApp
         var myAppModule = angular.module("myApp", []);
-        myAppModule.controller("HelloController", function($scope) {
+        myAppModule.controller("HelloController", [ '$scope', function($scope) {
             $scope.hello = {};
             $scope.hello.message = "Welcome to AngularJS";
-        });
+        }]);
         
         //Defining second module myApp2
         var myApp2Module = angular.module("myApp2", []);
@@ -27,7 +27,7 @@
 
 <body>
 
-    <div ng-app="myApp">
+    <div ng-app="myApp" ng-strict-di>
         <div ng-controller="HelloController">
             <h2> Hello, {{hello.message}} World </h2>
         </div>
