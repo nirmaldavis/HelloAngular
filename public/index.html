@@ -1,22 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Hello</title>
     <script src="/lib/angular.js">
     </script>
     <script>
-        var myApp = angular.module("myApp", []);
-        myApp.controller("HelloController", function($scope) {
+        
+        //Defined first module myApp
+        var myAppModule = angular.module("myApp", []);
+        myAppModule.controller("HelloController", function($scope) {
             $scope.hello = {};
             $scope.hello.message = "Welcome to AngularJS";
         });
         
+        //Defining second module myApp2
+        var myApp2Module = angular.module("myApp2", []);
+        
+        
+        //Refer : Angular bootstrap @ https://docs.angularjs.org/guide/bootstrap
+        
+        
     </script>
 </head>
-<body ng-app="myApp">
-   <div ng-controller="HelloController">
-        <h2> Hello, {{hello.message}} World </h2>
-   </div>
+
+<body>
+
+    <div ng-app="myApp">
+        <div ng-controller="HelloController">
+            <h2> Hello, {{hello.message}} World </h2>
+        </div>
+    </div>
+
+   
+<!--
+       This second ng-app directive will not be considered as angular automatic bootstrap process look for first ng-app directive and start processing
+       
+       Refer : Angular bootstrap @ https://docs.angularjs.org/guide/bootstrap
+       
+       You may need manual angular bootstrap process if you want to load multiple angular modules in single page
+       
+-->
+    <div ng-app="myApp2">
+       
+       <h1> Sample Hello with Angular JS</h1>
+       
+        <p>
+            Enter Your name :
+            <input type="text" ng-model="name" placeholder="Name here">
+        </p>
+        <p>
+            Hello, <span ng-bind="name"></span>
+        </p>
+    </div>
+
 </body>
+
 </html>
